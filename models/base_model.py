@@ -7,7 +7,8 @@ from pathlib import Path
 import torch
 from abc import ABC
 
-from models.helper import get_optimizer, get_criterion
+from models.optimizers import get_optimizer
+from models.criterions import get_criterion
 from metrics import get_metric
 
 

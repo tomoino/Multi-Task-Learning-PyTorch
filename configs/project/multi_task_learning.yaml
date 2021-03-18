@@ -1,0 +1,43 @@
+# @package _group_
+#
+# Multi task learning project 
+
+# MLflow configs
+experiment:
+  name: MultiTaskLearning
+
+# Data configs
+data:
+  dataset: 
+    name: omniglot
+    rootdir: /workspace/datasets
+    num_train_task: 6 # 30 
+    num_way: 3
+    num_shot: 15
+    in_channel: 1
+  sampler:
+    name: balanced_batch_sampler
+
+# Training configs
+train:
+  trainer:
+    name: multi_task
+  batch_size: 10
+  epochs: 3
+  optimizer:
+    name: adam
+    lr: 0.0001
+    decay: 0.0001
+  criterion:
+    name: multi_task_criterion
+  metric:
+    name: classification
+  save_best_ckpt: True
+  num_workers: 2
+  ckpt_path: best_ckpt.pth
+
+# Model configs
+model:
+  name: simple_cnn
+  pretrained: False
+  initial_ckpt: 

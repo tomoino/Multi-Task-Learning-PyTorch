@@ -18,6 +18,7 @@ SUPPORTED_SAMPLER = [
 SUPPORTED_MODEL = [
     "resnet18",
     "simple_cnn",
+    "multi_task_model",
 ]
 
 SUPPORTED_OPTIMIZER = [
@@ -26,6 +27,7 @@ SUPPORTED_OPTIMIZER = [
 
 SUPPORTED_CRITERION = [
     "cross_entropy",
+    "multi_task_cross_entropy"
 ]
 
 SUPPORTED_METRIC = [
@@ -34,4 +36,5 @@ SUPPORTED_METRIC = [
 
 SUPPORTED_TRAINER = [
     "default",
+    "multi_task",
 ]

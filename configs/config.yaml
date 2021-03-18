@@ -1,5 +1,5 @@
 defaults:
-  - project: default
+  - project: multi_task_learning
   - hydra/job_logging: custom
 
 # Arguments

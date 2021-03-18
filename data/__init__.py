@@ -46,14 +46,16 @@ def get_dataset(cfg: object, mode: str) -> tuple:
 
     if dataset_name == "omniglot":
         dataset = Omniglot(cfg, mode)
-        classes = list(range(cfg.data.dataset.num_class))
+        num_class = cfg.data.dataset.num_way * cfg.data.dataset.num_train_task
+        classes = list(range(num_class))
         filtered_dataset = helper.class_filter(dataset=dataset, classes=classes)
 
         if mode == "trainval":
-            num_shot = cfg.data.dataset.num_train_samples / cfg.data.dataset.num_class
-            return helper.classification_train_val_split(dataset=filtered_dataset, num_shot=num_shot)
-        elif mode == "test":
-            return filtered_dataset
+            num_shot = cfg.data.dataset.num_shot
+            num_way = cfg.data.dataset.num_way
+            return helper.multi_task_classification_filter(dataset=filtered_dataset, num_way=num_way, num_shot=num_shot)
+        # elif mode == "test":
+        #     return filtered_dataset
             
     elif dataset_name == "cifar10":
         dataset = CIFAR10(cfg, mode)

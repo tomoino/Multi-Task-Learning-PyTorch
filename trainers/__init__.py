@@ -7,6 +7,7 @@ These functions are for execution.
 
 from configs.supported_info import SUPPORTED_TRAINER
 from trainers.default_trainer import DefaultTrainer
+from trainers.multi_task_trainer import MultiTaskTrainer
 
 
 def get_trainer(cfg: object) -> object:
